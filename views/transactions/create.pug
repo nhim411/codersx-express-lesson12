@@ -1,0 +1,24 @@
+extends ../layouts/common.pug
+
+block content
+  h1 Create transaction
+
+  form(action="/transactions/create", method="POST")
+    label(for="users") Choose users:
+    span &nbsp;
+    select(id="users", name="userId")
+      each user in users
+        option(value= user.id)
+          span= user.name
+    br
+
+    label(for="books") Choose books:
+    span &nbsp;
+    select(id="books", name="bookId")
+      each book in books
+        option(value= book.id)
+          span= book.title
+    br  
+    br
+
+    button Create

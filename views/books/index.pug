@@ -1,0 +1,33 @@
+extends ../layouts/common.pug
+
+block content
+  h1 Books Manager
+  hr
+  table.table.table-bordered
+    tr
+      th Title
+      th Description
+      th Update
+      th Delete
+    each book in books
+      tr
+        td= book.title
+        td= book.description
+        td
+          a.btn.btn-success.btn-sm(href='/books/update/'+book.id) Click
+        td
+          a.btn.btn-danger.btn-sm(href='/books/delete/'+book.id) Click
+  hr
+  h4 Add new book
+  form(action="/books/create", method="POST")
+    .form-group
+      label(for="title") Title
+      input#title.form-control(type="text", name="title")
+      
+    .form-group
+      label(for="description") Description
+      input#description.form-control(type="text", name="description")
+
+    button.btn.btn-primary Create
+      
+  
