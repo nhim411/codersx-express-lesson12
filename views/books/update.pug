@@ -1,0 +1,14 @@
+extends ../layouts/common.pug
+
+block content
+  h1 update new title for Book title: #{book.title}, id: #{book.id}
+
+  form(action='/books/update/'+book.id, method="POST")
+    c
+        label(for="title") title
+        input#title.form-control(type="text", name="title")
+    .form-group
+        label(for="description") description
+        input#description.form-control(type="text", name="description")
+        
+    button.btn.btn-primary Update

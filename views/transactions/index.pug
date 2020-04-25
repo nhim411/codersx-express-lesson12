@@ -1,0 +1,27 @@
+extends ../layouts/common.pug
+
+block content
+  h1 Transactions
+
+  a(href="/transactions/create") Create transaction
+  br
+  a(href="/") Home
+
+  table(class="table table-bordered")
+    tr
+      th User ID
+      th Book ID
+      th Is Complete
+      th Complete
+    each transaction in transactions
+      tr
+        td= transaction.userId
+        td= transaction.bookId
+        td
+          span= transaction.isComplete === true ? "Yes" : "No"
+        td
+          a.btn.btn-success.btn-sm(href="/transactions/" + transaction.id + "/complete") Click
+    
+    
+      
+      

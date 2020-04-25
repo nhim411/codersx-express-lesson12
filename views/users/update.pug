@@ -1,0 +1,13 @@
+extends ../layouts/common.pug
+
+block content
+  h1 update new name for User'name: #{user.name}
+
+  form(action='/users/update/'+user.id, method="POST")
+    label title:&nbsp;
+    input(type="text", name="name")
+    span &nbsp;
+    span &nbsp;
+    button Update
+    br
+    a(href='/users') Go to /users
